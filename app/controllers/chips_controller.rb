@@ -14,6 +14,21 @@ class ChipsController < ApplicationController
     end
   end
 
+  def show
+    @chip = Chip.find(params[:id])
+  end
+
+  def edit
+    @chip = Chip.find(params[:id])
+  end
+
+  def update
+    @chip = Chip.find(params[:id])
+    @chip.update_attributes!(chip_params)
+
+    redirect_to chips_path
+  end
+
   private
 
   def chip_params

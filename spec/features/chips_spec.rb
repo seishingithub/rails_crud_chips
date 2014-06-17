@@ -31,6 +31,21 @@ feature 'Manage Chips' do
     expect(page).to have_no_content 'potatoes'
     expect(page).to have_content 'tortilla chips'
     expect(page).to have_content 'corn'
+  end
 
+  scenario 'User can delete chips' do
+    visit '/'
+    click_on 'Add a chip'
+    fill_in 'Chip type', with: 'potato chips'
+    fill_in 'Main ingredient', with: 'potatoes'
+    click_on 'Create a chip'
+    expect(page).to have_content 'potato chips'
+    expect(page).to have_content 'potatoes'
+    click_on 'potato chips'
+    expect(page).to have_content 'potato chips'
+    expect(page).to have_content 'potatoes'
+    click_on 'Delete chip'
+    expect(page).to have_no_content 'potato chips'
+    expect(page).to have_no_content 'potatoes'
   end
 end

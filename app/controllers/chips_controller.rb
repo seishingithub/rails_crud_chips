@@ -29,6 +29,12 @@ class ChipsController < ApplicationController
     redirect_to chips_path
   end
 
+  def destroy
+    @chip = Chip.find(params[:id]).delete
+
+    redirect_to chips_path
+  end
+
   private
 
   def chip_params

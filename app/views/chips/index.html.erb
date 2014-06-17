@@ -1,0 +1,21 @@
+<%= form_for @chip do |f| %>
+  <p>
+    <%= f.label :chip_type %>
+    <%= f.text_field :chip_type %>
+  </p>
+  <p>
+    <%= f.label :main_ingredient %>
+    <%= f.text_field :main_ingredient %>
+  </p>
+  <p>
+    <%= f.submit 'Create a chip' %>
+  </p>
+<% end %>
+
+<% @chips.each do |chip| %>
+  <ul>
+    <li>
+      <%= chip.chip_type %>, <%= chip.main_ingredient %>
+    </li>
+  </ul>
+<% end %>
